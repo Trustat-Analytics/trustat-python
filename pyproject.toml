@@ -1,0 +1,79 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "trustat"
+dynamic = ["version"]
+description = "Python SDK for the Trustat API — Telegram & MAX channel analytics, posts, and Telegram Ads."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Trustat" }]
+keywords = ["trustat", "telegram", "analytics", "api", "sdk", "telegram-ads"]
+dependencies = [
+    "httpx>=0.27",
+    "pydantic>=2.7,<3",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://trustat.me"
+Documentation = "https://api-public.trustat.me/scalar"
+Repository = "https://github.com/Trustat-Analytics/trustat-python"
+Issues = "https://github.com/Trustat-Analytics/trustat-python/issues"
+Changelog = "https://github.com/Trustat-Analytics/trustat-python/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-asyncio>=0.23",
+    "respx>=0.21",
+    "mypy>=1.10",
+    "ruff>=0.5",
+]
+
+[tool.hatch.version]
+path = "src/trustat/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/trustat"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/trustat", "README.md", "LICENSE"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+# Generated models are not hand-maintained; don't lint them.
+exclude = ["src/trustat/_models/models.py"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_unreachable = true
+# The generated model module is validated by pydantic at runtime, not mypy.
+exclude = ["src/trustat/_models/models.py"]
+
+[tool.pyright]
+typeCheckingMode = "strict"
+exclude = ["src/trustat/_models/models.py"]

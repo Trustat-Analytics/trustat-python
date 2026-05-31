@@ -1,0 +1,11 @@
+# build / packaging
+dist/
+build/
+*.egg-info/
+# caches
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.venv/
