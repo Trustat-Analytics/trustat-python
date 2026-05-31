@@ -6,9 +6,9 @@ burn-down without poking at raw headers.
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
-from typing import Mapping
 
 
 def _to_int(value: str | None) -> int | None:
@@ -43,8 +43,8 @@ def _split_pair(value: str | None) -> tuple[int, int] | None:
     if not value or "/" not in value:
         return None
     used, _, limit = value.partition("/")
-    u, l = _to_int(used.strip()), _to_int(limit.strip())
-    return (u, l) if u is not None and l is not None else None
+    u, lim = _to_int(used.strip()), _to_int(limit.strip())
+    return (u, lim) if u is not None and lim is not None else None
 
 
 @dataclass(frozen=True)
@@ -57,11 +57,9 @@ class RateLimit:
     reset_at: datetime | None = None
 
     @classmethod
-    def from_headers(cls, headers: Mapping[str, str]) -> "RateLimit":
+    def from_headers(cls, headers: Mapping[str, str]) -> RateLimit:
         reset_s = _to_float(_first(headers, "ratelimit-reset", "x-ratelimit-reset"))
-        reset_at = (
-            datetime.now(timezone.utc) + timedelta(seconds=reset_s) if reset_s is not None else None
-        )
+        reset_at = datetime.now(timezone.utc) + timedelta(seconds=reset_s) if reset_s is not None else None
         return cls(
             limit=_to_int(_first(headers, "ratelimit-limit", "x-ratelimit-limit")),
             remaining=_to_int(_first(headers, "ratelimit-remaining", "x-ratelimit-remaining")),
@@ -80,7 +78,7 @@ class Quota:
     overage: bool = False
 
     @classmethod
-    def from_headers(cls, headers: Mapping[str, str]) -> "Quota":
+    def from_headers(cls, headers: Mapping[str, str]) -> Quota:
         return cls(
             requests=_split_pair(_first(headers, "x-quota-requests")),
             channels=_split_pair(_first(headers, "x-quota-channels")),

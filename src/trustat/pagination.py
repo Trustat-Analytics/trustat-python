@@ -16,7 +16,8 @@ it to bound the loop (always rely on cursor/short-page).
 
 from __future__ import annotations
 
-from typing import Any, AsyncIterator, Callable, Generic, Iterator, TypeVar, cast
+from collections.abc import AsyncIterator, Callable, Iterator
+from typing import Any, Generic, TypeVar, cast
 
 import httpx
 
@@ -60,10 +61,7 @@ class BasePage(Generic[T]):
         return self.items[index]
 
     def __repr__(self) -> str:
-        return (
-            f"<{type(self).__name__} items={len(self.items)} "
-            f"total~{self.total} has_next={self.has_next_page()}>"
-        )
+        return f"<{type(self).__name__} items={len(self.items)} total~{self.total} has_next={self.has_next_page()}>"
 
     # --- subclass hooks ---
     def has_next_page(self) -> bool:  # pragma: no cover - overridden
@@ -102,12 +100,12 @@ class _OffsetMixin:
 # Sync pages
 # --------------------------------------------------------------------------- #
 class _SyncPage(BasePage[T]):
-    def next_page(self) -> "_SyncPage[T] | None":
+    def next_page(self) -> _SyncPage[T] | None:
         if not self.has_next_page():
             return None
         return cast("_SyncPage[T]", self._fetch(self._next_params()))
 
-    def iter_pages(self) -> Iterator["_SyncPage[T]"]:
+    def iter_pages(self) -> Iterator[_SyncPage[T]]:
         page: _SyncPage[T] | None = self
         while page is not None:
             yield page
@@ -130,12 +128,12 @@ class SyncOffsetPage(_OffsetMixin, _SyncPage[T]):
 # Async pages
 # --------------------------------------------------------------------------- #
 class _AsyncPage(BasePage[T]):
-    async def next_page(self) -> "_AsyncPage[T] | None":
+    async def next_page(self) -> _AsyncPage[T] | None:
         if not self.has_next_page():
             return None
         return cast("_AsyncPage[T]", await self._fetch(self._next_params()))
 
-    async def iter_pages(self) -> AsyncIterator["_AsyncPage[T]"]:
+    async def iter_pages(self) -> AsyncIterator[_AsyncPage[T]]:
         page: _AsyncPage[T] | None = self
         while page is not None:
             yield page
@@ -183,7 +181,7 @@ class AsyncPaginator(Generic[T]):
                 yield item
             page = await page.next_page()
 
-    async def iter_pages(self) -> AsyncIterator["_AsyncPage[T]"]:
+    async def iter_pages(self) -> AsyncIterator[_AsyncPage[T]]:
         page: _AsyncPage[T] | None = await self._fetch(self._params)
         while page is not None:
             yield page

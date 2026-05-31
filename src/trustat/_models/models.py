@@ -14,97 +14,91 @@ class AdCreative(TrustatModel):
     Полная карточка рекламного креатива (одно объявление).
     """
 
-    creative_hash: Annotated[str | None, Field(title='Creative Hash')] = None
+    creative_hash: Annotated[str | None, Field(title="Creative Hash")] = None
     """
     Идентификатор креатива (ключ карточки)
     """
-    title: Annotated[str | None, Field(title='Title')] = None
+    title: Annotated[str | None, Field(title="Title")] = None
     """
     Заголовок / имя рекламодателя
     """
-    message: Annotated[str | None, Field(title='Message')] = None
+    message: Annotated[str | None, Field(title="Message")] = None
     """
     Текст объявления
     """
-    button_text: Annotated[str | None, Field(title='Button Text')] = None
+    button_text: Annotated[str | None, Field(title="Button Text")] = None
     """
     Текст кнопки-призыва (CTA)
     """
-    color_id: Annotated[int | None, Field(title='Color Id')] = None
+    color_id: Annotated[int | None, Field(title="Color Id")] = None
     """
     Акцентный цвет объявления (0–12), если задан
     """
-    ad_format: Annotated[str | None, Field(title='Ad Format')] = None
+    ad_format: Annotated[str | None, Field(title="Ad Format")] = None
     """
     Формат: «image», «premium_emoji», «text», «video»
     """
-    advertiser_type: Annotated[str | None, Field(title='Advertiser Type')] = None
+    advertiser_type: Annotated[str | None, Field(title="Advertiser Type")] = None
     """
     Тип рекламодателя: «website», «channel», «bot»
     """
-    creative_lang: Annotated[str | None, Field(title='Creative Lang')] = None
+    creative_lang: Annotated[str | None, Field(title="Creative Lang")] = None
     """
     Язык объявления (ISO 639, напр. «ru»)
     """
-    target_url: Annotated[str | None, Field(title='Target Url')] = None
+    target_url: Annotated[str | None, Field(title="Target Url")] = None
     """
     Целевая ссылка объявления (сайт или t.me)
     """
-    target_domain: Annotated[str | None, Field(title='Target Domain')] = None
+    target_domain: Annotated[str | None, Field(title="Target Domain")] = None
     """
     Целевой домен/канал, выведенный из ссылки (напр. «example.com» или «t.me/durov»)
     """
-    target_type: Annotated[str | None, Field(title='Target Type')] = None
+    target_type: Annotated[str | None, Field(title="Target Type")] = None
     """
     Тип цели: «website», «channel» или «bot»
     """
-    media_url: Annotated[str | None, Field(title='Media Url')] = None
+    media_url: Annotated[str | None, Field(title="Media Url")] = None
     """
     Ссылка на медиа объявления (картинка/видео)
     """
-    media_thumb_url: Annotated[str | None, Field(title='Media Thumb Url')] = None
+    media_thumb_url: Annotated[str | None, Field(title="Media Thumb Url")] = None
     """
     Ссылка на миниатюру медиа
     """
-    advertiser_photo_url: Annotated[str | None, Field(title='Advertiser Photo Url')] = (
-        None
-    )
+    advertiser_photo_url: Annotated[str | None, Field(title="Advertiser Photo Url")] = None
     """
     Аватар рекламодателя
     """
-    channel_id: Annotated[int | None, Field(title='Channel Id')] = None
+    channel_id: Annotated[int | None, Field(title="Channel Id")] = None
     """
     ID канала, в котором замечено объявление
     """
-    channel_country: Annotated[str | None, Field(title='Channel Country')] = None
+    channel_country: Annotated[str | None, Field(title="Channel Country")] = None
     """
     Страна канала показа (нормализована)
     """
-    channel_lang: Annotated[str | None, Field(title='Channel Lang')] = None
+    channel_lang: Annotated[str | None, Field(title="Channel Lang")] = None
     """
     Язык канала показа
     """
-    channel_category_id: Annotated[int | None, Field(title='Channel Category Id')] = (
-        None
-    )
+    channel_category_id: Annotated[int | None, Field(title="Channel Category Id")] = None
     """
     Категория канала показа (справочник категорий)
     """
-    first_seen: Annotated[str | None, Field(title='First Seen')] = None
+    first_seen: Annotated[str | None, Field(title="First Seen")] = None
     """
     Когда объявление впервые замечено, UTC ISO-8601
     """
-    last_seen: Annotated[str | None, Field(title='Last Seen')] = None
+    last_seen: Annotated[str | None, Field(title="Last Seen")] = None
     """
     Когда объявление замечено в последний раз, UTC ISO-8601
     """
-    message_html: Annotated[str | None, Field(title='Message Html')] = None
+    message_html: Annotated[str | None, Field(title="Message Html")] = None
     """
     HTML-версия текста объявления (для рендера)
     """
-    advertised_channel_id: Annotated[
-        int | None, Field(title='Advertised Channel Id')
-    ] = None
+    advertised_channel_id: Annotated[int | None, Field(title="Advertised Channel Id")] = None
     """
     ID рекламируемого канала, если цель — канал/бот (для перехода к его статистике)
     """
@@ -115,87 +109,83 @@ class AdSummary(TrustatModel):
     Рекламный креатив Telegram Ads (карточка в списках).
     """
 
-    creative_hash: Annotated[str | None, Field(title='Creative Hash')] = None
+    creative_hash: Annotated[str | None, Field(title="Creative Hash")] = None
     """
     Идентификатор креатива (ключ карточки)
     """
-    title: Annotated[str | None, Field(title='Title')] = None
+    title: Annotated[str | None, Field(title="Title")] = None
     """
     Заголовок / имя рекламодателя
     """
-    message: Annotated[str | None, Field(title='Message')] = None
+    message: Annotated[str | None, Field(title="Message")] = None
     """
     Текст объявления
     """
-    button_text: Annotated[str | None, Field(title='Button Text')] = None
+    button_text: Annotated[str | None, Field(title="Button Text")] = None
     """
     Текст кнопки-призыва (CTA)
     """
-    color_id: Annotated[int | None, Field(title='Color Id')] = None
+    color_id: Annotated[int | None, Field(title="Color Id")] = None
     """
     Акцентный цвет объявления (0–12), если задан
     """
-    ad_format: Annotated[str | None, Field(title='Ad Format')] = None
+    ad_format: Annotated[str | None, Field(title="Ad Format")] = None
     """
     Формат: «image», «premium_emoji», «text», «video»
     """
-    advertiser_type: Annotated[str | None, Field(title='Advertiser Type')] = None
+    advertiser_type: Annotated[str | None, Field(title="Advertiser Type")] = None
     """
     Тип рекламодателя: «website», «channel», «bot»
     """
-    creative_lang: Annotated[str | None, Field(title='Creative Lang')] = None
+    creative_lang: Annotated[str | None, Field(title="Creative Lang")] = None
     """
     Язык объявления (ISO 639, напр. «ru»)
     """
-    target_url: Annotated[str | None, Field(title='Target Url')] = None
+    target_url: Annotated[str | None, Field(title="Target Url")] = None
     """
     Целевая ссылка объявления (сайт или t.me)
     """
-    target_domain: Annotated[str | None, Field(title='Target Domain')] = None
+    target_domain: Annotated[str | None, Field(title="Target Domain")] = None
     """
     Целевой домен/канал, выведенный из ссылки (напр. «example.com» или «t.me/durov»)
     """
-    target_type: Annotated[str | None, Field(title='Target Type')] = None
+    target_type: Annotated[str | None, Field(title="Target Type")] = None
     """
     Тип цели: «website», «channel» или «bot»
     """
-    media_url: Annotated[str | None, Field(title='Media Url')] = None
+    media_url: Annotated[str | None, Field(title="Media Url")] = None
     """
     Ссылка на медиа объявления (картинка/видео)
     """
-    media_thumb_url: Annotated[str | None, Field(title='Media Thumb Url')] = None
+    media_thumb_url: Annotated[str | None, Field(title="Media Thumb Url")] = None
     """
     Ссылка на миниатюру медиа
     """
-    advertiser_photo_url: Annotated[str | None, Field(title='Advertiser Photo Url')] = (
-        None
-    )
+    advertiser_photo_url: Annotated[str | None, Field(title="Advertiser Photo Url")] = None
     """
     Аватар рекламодателя
     """
-    channel_id: Annotated[int | None, Field(title='Channel Id')] = None
+    channel_id: Annotated[int | None, Field(title="Channel Id")] = None
     """
     ID канала, в котором замечено объявление
     """
-    channel_country: Annotated[str | None, Field(title='Channel Country')] = None
+    channel_country: Annotated[str | None, Field(title="Channel Country")] = None
     """
     Страна канала показа (нормализована)
     """
-    channel_lang: Annotated[str | None, Field(title='Channel Lang')] = None
+    channel_lang: Annotated[str | None, Field(title="Channel Lang")] = None
     """
     Язык канала показа
     """
-    channel_category_id: Annotated[int | None, Field(title='Channel Category Id')] = (
-        None
-    )
+    channel_category_id: Annotated[int | None, Field(title="Channel Category Id")] = None
     """
     Категория канала показа (справочник категорий)
     """
-    first_seen: Annotated[str | None, Field(title='First Seen')] = None
+    first_seen: Annotated[str | None, Field(title="First Seen")] = None
     """
     Когда объявление впервые замечено, UTC ISO-8601
     """
-    last_seen: Annotated[str | None, Field(title='Last Seen')] = None
+    last_seen: Annotated[str | None, Field(title="Last Seen")] = None
     """
     Когда объявление замечено в последний раз, UTC ISO-8601
     """
@@ -206,38 +196,38 @@ class AdvertiserAdsList(TrustatModel):
     Объявления одного рекламодателя (по домену цели).
     """
 
-    domain: Annotated[str | None, Field(title='Domain')] = None
+    domain: Annotated[str | None, Field(title="Domain")] = None
     """
     Запрошенный домен цели
     """
-    total: Annotated[int | None, Field(title='Total')] = None
+    total: Annotated[int | None, Field(title="Total")] = None
     """
     Примерное число объявлений этого домена
     """
-    limit: Annotated[int | None, Field(title='Limit')] = None
+    limit: Annotated[int | None, Field(title="Limit")] = None
     """
     Размер страницы из запроса
     """
-    next_cursor: Annotated[str | None, Field(title='Next Cursor')] = None
+    next_cursor: Annotated[str | None, Field(title="Next Cursor")] = None
     """
     Курсор следующей страницы
     """
-    ads: Annotated[list[AdSummary] | None, Field(title='Ads')] = None
+    ads: Annotated[list[AdSummary] | None, Field(title="Ads")] = None
     """
     Объявления, ведущие на этот домен
     """
 
 
 class CategoryDict(TrustatModel):
-    id: Annotated[int | None, Field(title='Id')] = None
+    id: Annotated[int | None, Field(title="Id")] = None
     """
     ID категории
     """
-    name: Annotated[str | None, Field(title='Name')] = None
+    name: Annotated[str | None, Field(title="Name")] = None
     """
     Название категории
     """
-    channels_count: Annotated[int | None, Field(title='Channels Count')] = None
+    channels_count: Annotated[int | None, Field(title="Channels Count")] = None
     """
     Сколько каналов в этой категории
     """
@@ -248,23 +238,23 @@ class ChannelAdsList(TrustatModel):
     Реклама, замеченная в конкретном канале.
     """
 
-    channel_id: Annotated[int | None, Field(title='Channel Id')] = None
+    channel_id: Annotated[int | None, Field(title="Channel Id")] = None
     """
     ID канала
     """
-    source: Annotated[str | None, Field(title='Source')] = None
+    source: Annotated[str | None, Field(title="Source")] = None
     """
     Источник канала: «telegram» или «max»
     """
-    limit: Annotated[int | None, Field(title='Limit')] = None
+    limit: Annotated[int | None, Field(title="Limit")] = None
     """
     Размер страницы из запроса
     """
-    next_cursor: Annotated[str | None, Field(title='Next Cursor')] = None
+    next_cursor: Annotated[str | None, Field(title="Next Cursor")] = None
     """
     Курсор следующей страницы
     """
-    ads: Annotated[list[AdSummary] | None, Field(title='Ads')] = None
+    ads: Annotated[list[AdSummary] | None, Field(title="Ads")] = None
     """
     Объявления, замеченные в этом канале
     """
@@ -275,71 +265,71 @@ class ChannelInfo(TrustatModel):
     Публичная карточка канала.
     """
 
-    channel_id: Annotated[int | None, Field(title='Channel Id')] = None
+    channel_id: Annotated[int | None, Field(title="Channel Id")] = None
     """
     ID канала (Telegram или MAX)
     """
-    title: Annotated[str | None, Field(title='Title')] = None
+    title: Annotated[str | None, Field(title="Title")] = None
     """
     Название канала
     """
-    username: Annotated[str | None, Field(title='Username')] = None
+    username: Annotated[str | None, Field(title="Username")] = None
     """
     Юзернейм без «@» (если публичный)
     """
-    canonical_link: Annotated[str | None, Field(title='Canonical Link')] = None
+    canonical_link: Annotated[str | None, Field(title="Canonical Link")] = None
     """
     Канонический публичный линк: username или join-хеш приватного канала
     """
-    about: Annotated[str | None, Field(title='About')] = None
+    about: Annotated[str | None, Field(title="About")] = None
     """
     Описание канала
     """
-    source: Annotated[str | None, Field(title='Source')] = None
+    source: Annotated[str | None, Field(title="Source")] = None
     """
     Источник: «telegram» или «max»
     """
-    peer_type: Annotated[str | None, Field(title='Peer Type')] = None
+    peer_type: Annotated[str | None, Field(title="Peer Type")] = None
     """
     Тип: «channel» (канал) или «chat» (чат/группа)
     """
-    participants: Annotated[int | None, Field(title='Participants')] = None
+    participants: Annotated[int | None, Field(title="Participants")] = None
     """
     Число подписчиков
     """
-    verified: Annotated[bool | None, Field(title='Verified')] = None
+    verified: Annotated[bool | None, Field(title="Verified")] = None
     """
     Верифицирован (официальная галочка)
     """
-    scam: Annotated[bool | None, Field(title='Scam')] = None
+    scam: Annotated[bool | None, Field(title="Scam")] = None
     """
     Помечен платформой как скам
     """
-    fake: Annotated[bool | None, Field(title='Fake')] = None
+    fake: Annotated[bool | None, Field(title="Fake")] = None
     """
     Помечен платформой как фейк
     """
-    sensitive_photo: Annotated[bool | None, Field(title='Sensitive Photo')] = None
+    sensitive_photo: Annotated[bool | None, Field(title="Sensitive Photo")] = None
     """
     Аватар помечен как чувствительный контент
     """
-    photo_url: Annotated[str | None, Field(title='Photo Url')] = None
+    photo_url: Annotated[str | None, Field(title="Photo Url")] = None
     """
     URL аватара (полный размер)
     """
-    photo_url_thumb: Annotated[str | None, Field(title='Photo Url Thumb')] = None
+    photo_url_thumb: Annotated[str | None, Field(title="Photo Url Thumb")] = None
     """
     URL аватара (миниатюра)
     """
-    lang: Annotated[str | None, Field(title='Lang')] = None
+    lang: Annotated[str | None, Field(title="Lang")] = None
     """
     Код языка канала (ISO 639, напр. «ru»)
     """
-    country: Annotated[str | None, Field(title='Country')] = None
+    country: Annotated[str | None, Field(title="Country")] = None
     """
     Код страны (напр. «ru», «INTL»)
     """
-    categories: Annotated[list[Any] | None, Field(title='Categories')] = None
+    categories: Annotated[list[Any] | None, Field(title="Categories")] = None
     """
     Категории канала в виде [{id, name}]
     """
@@ -350,19 +340,19 @@ class ChannelList(TrustatModel):
     Страница каталога/поиска каналов.
     """
 
-    total: Annotated[int | None, Field(title='Total')] = None
+    total: Annotated[int | None, Field(title="Total")] = None
     """
     Примерное число подходящих каналов (точно до порога; дальше — нижняя оценка)
     """
-    limit: Annotated[int | None, Field(title='Limit')] = None
+    limit: Annotated[int | None, Field(title="Limit")] = None
     """
     Размер страницы из запроса
     """
-    next_cursor: Annotated[str | None, Field(title='Next Cursor')] = None
+    next_cursor: Annotated[str | None, Field(title="Next Cursor")] = None
     """
     Курсор следующей страницы; null, если каналов больше нет (или достигнут потолок глубины — сузьте фильтр)
     """
-    channels: Annotated[list[ChannelInfo] | None, Field(title='Channels')] = None
+    channels: Annotated[list[ChannelInfo] | None, Field(title="Channels")] = None
     """
     Каналы на этой странице
     """
@@ -373,153 +363,145 @@ class ChannelStat(TrustatModel):
     Ключевые метрики канала: аудитория, охваты, вовлечённость, динамика, упоминания, оценка качества.
     """
 
-    channel_id: Annotated[int | None, Field(title='Channel Id')] = None
+    channel_id: Annotated[int | None, Field(title="Channel Id")] = None
     """
     ID канала
     """
-    source: Annotated[str | None, Field(title='Source')] = None
+    source: Annotated[str | None, Field(title="Source")] = None
     """
     Источник: «telegram» или «max»
     """
-    participants: Annotated[int | None, Field(title='Participants')] = None
+    participants: Annotated[int | None, Field(title="Participants")] = None
     """
     Число подписчиков
     """
-    views24: Annotated[int | None, Field(title='Views24')] = None
+    views24: Annotated[int | None, Field(title="Views24")] = None
     """
     Средние просмотры поста за 24 часа
     """
-    views48: Annotated[int | None, Field(title='Views48')] = None
+    views48: Annotated[int | None, Field(title="Views48")] = None
     """
     Средние просмотры поста за 48 часов
     """
-    views72: Annotated[int | None, Field(title='Views72')] = None
+    views72: Annotated[int | None, Field(title="Views72")] = None
     """
     Средние просмотры поста за 72 часа
     """
-    er24: Annotated[int | None, Field(title='Er24')] = None
+    er24: Annotated[int | None, Field(title="Er24")] = None
     """
     Вовлечённость (ER) за 24 часа
     """
-    er_day: Annotated[float | None, Field(title='Er Day')] = None
+    er_day: Annotated[float | None, Field(title="Er Day")] = None
     """
     ER за день
     """
-    er_yesterday: Annotated[float | None, Field(title='Er Yesterday')] = None
+    er_yesterday: Annotated[float | None, Field(title="Er Yesterday")] = None
     """
     ER за вчера
     """
-    er_week: Annotated[float | None, Field(title='Er Week')] = None
+    er_week: Annotated[float | None, Field(title="Er Week")] = None
     """
     ER за неделю
     """
-    er_month: Annotated[float | None, Field(title='Er Month')] = None
+    er_month: Annotated[float | None, Field(title="Er Month")] = None
     """
     ER за месяц
     """
-    er_year: Annotated[float | None, Field(title='Er Year')] = None
+    er_year: Annotated[float | None, Field(title="Er Year")] = None
     """
     ER за год
     """
-    er_day_diff: Annotated[float | None, Field(title='Er Day Diff')] = None
+    er_day_diff: Annotated[float | None, Field(title="Er Day Diff")] = None
     """
     Изменение ER за день
     """
-    er_week_diff: Annotated[float | None, Field(title='Er Week Diff')] = None
+    er_week_diff: Annotated[float | None, Field(title="Er Week Diff")] = None
     """
     Изменение ER за неделю
     """
-    er_month_diff: Annotated[float | None, Field(title='Er Month Diff')] = None
+    er_month_diff: Annotated[float | None, Field(title="Er Month Diff")] = None
     """
     Изменение ER за месяц
     """
-    er_year_diff: Annotated[float | None, Field(title='Er Year Diff')] = None
+    er_year_diff: Annotated[float | None, Field(title="Er Year Diff")] = None
     """
     Изменение ER за год
     """
-    day_growth: Annotated[int | None, Field(title='Day Growth')] = None
+    day_growth: Annotated[int | None, Field(title="Day Growth")] = None
     """
     Прирост подписчиков за день
     """
-    yesterday_growth: Annotated[int | None, Field(title='Yesterday Growth')] = None
+    yesterday_growth: Annotated[int | None, Field(title="Yesterday Growth")] = None
     """
     Прирост подписчиков за вчера
     """
-    week_growth: Annotated[int | None, Field(title='Week Growth')] = None
+    week_growth: Annotated[int | None, Field(title="Week Growth")] = None
     """
     Прирост подписчиков за неделю
     """
-    month_growth: Annotated[int | None, Field(title='Month Growth')] = None
+    month_growth: Annotated[int | None, Field(title="Month Growth")] = None
     """
     Прирост подписчиков за месяц
     """
-    year_growth: Annotated[int | None, Field(title='Year Growth')] = None
+    year_growth: Annotated[int | None, Field(title="Year Growth")] = None
     """
     Прирост подписчиков за год
     """
-    day_growth_percent: Annotated[float | None, Field(title='Day Growth Percent')] = (
-        None
-    )
+    day_growth_percent: Annotated[float | None, Field(title="Day Growth Percent")] = None
     """
     Прирост подписчиков за день, %
     """
-    week_growth_percent: Annotated[float | None, Field(title='Week Growth Percent')] = (
-        None
-    )
+    week_growth_percent: Annotated[float | None, Field(title="Week Growth Percent")] = None
     """
     Прирост подписчиков за неделю, %
     """
-    month_growth_percent: Annotated[
-        float | None, Field(title='Month Growth Percent')
-    ] = None
+    month_growth_percent: Annotated[float | None, Field(title="Month Growth Percent")] = None
     """
     Прирост подписчиков за месяц, %
     """
-    year_growth_percent: Annotated[float | None, Field(title='Year Growth Percent')] = (
-        None
-    )
+    year_growth_percent: Annotated[float | None, Field(title="Year Growth Percent")] = None
     """
     Прирост подписчиков за год, %
     """
-    total_mentions: Annotated[int | None, Field(title='Total Mentions')] = None
+    total_mentions: Annotated[int | None, Field(title="Total Mentions")] = None
     """
     Всего упоминаний канала
     """
-    day_mentions: Annotated[int | None, Field(title='Day Mentions')] = None
+    day_mentions: Annotated[int | None, Field(title="Day Mentions")] = None
     """
     Упоминаний за день
     """
-    week_mentions: Annotated[int | None, Field(title='Week Mentions')] = None
+    week_mentions: Annotated[int | None, Field(title="Week Mentions")] = None
     """
     Упоминаний за неделю
     """
-    month_mentions: Annotated[int | None, Field(title='Month Mentions')] = None
+    month_mentions: Annotated[int | None, Field(title="Month Mentions")] = None
     """
     Упоминаний за месяц
     """
-    year_mentions: Annotated[int | None, Field(title='Year Mentions')] = None
+    year_mentions: Annotated[int | None, Field(title="Year Mentions")] = None
     """
     Упоминаний за год
     """
-    quality_score: Annotated[float | None, Field(title='Quality Score')] = None
+    quality_score: Annotated[float | None, Field(title="Quality Score")] = None
     """
     Оценка качества канала (0–100)
     """
 
 
 class CountryDict(TrustatModel):
-    code: Annotated[str | None, Field(title='Code')] = None
+    code: Annotated[str | None, Field(title="Code")] = None
     """
     Код страны (напр. «ru», «INTL»)
     """
-    channels_count: Annotated[int | None, Field(title='Channels Count')] = None
+    channels_count: Annotated[int | None, Field(title="Channels Count")] = None
     """
     Сколько каналов с этой страной
     """
 
 
 class EnvelopeAdCreative(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -530,7 +512,7 @@ class EnvelopeAdCreative(TrustatModel):
 
 
 class EnvelopeAdvertiserAdsList(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -541,7 +523,7 @@ class EnvelopeAdvertiserAdsList(TrustatModel):
 
 
 class EnvelopeChannelAdsList(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -552,7 +534,7 @@ class EnvelopeChannelAdsList(TrustatModel):
 
 
 class EnvelopeChannelInfo(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -563,7 +545,7 @@ class EnvelopeChannelInfo(TrustatModel):
 
 
 class EnvelopeChannelList(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -574,7 +556,7 @@ class EnvelopeChannelList(TrustatModel):
 
 
 class EnvelopeChannelStat(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -585,11 +567,11 @@ class EnvelopeChannelStat(TrustatModel):
 
 
 class FacetBucket(TrustatModel):
-    value: Annotated[str | int | None, Field(title='Value')] = None
+    value: Annotated[str | int | None, Field(title="Value")] = None
     """
     Значение фасета
     """
-    count: Annotated[int | None, Field(title='Count')] = None
+    count: Annotated[int | None, Field(title="Count")] = None
     """
     Сколько объявлений с этим значением
     """
@@ -600,47 +582,43 @@ class Forward(TrustatModel):
     Публикация, которая сделала репост из запрошенного канала.
     """
 
-    channel_id: Annotated[int | None, Field(title='Channel Id')] = None
+    channel_id: Annotated[int | None, Field(title="Channel Id")] = None
     """
     ID канала, опубликовавшего репост
     """
-    message_id: Annotated[int | None, Field(title='Message Id')] = None
+    message_id: Annotated[int | None, Field(title="Message Id")] = None
     """
     ID сообщения с репостом
     """
-    post_id: Annotated[str | None, Field(title='Post Id')] = None
+    post_id: Annotated[str | None, Field(title="Post Id")] = None
     """
     Идентификатор поста-репоста «<channel_id>_<message_id>»
     """
-    date: Annotated[str | None, Field(title='Date')] = None
+    date: Annotated[str | None, Field(title="Date")] = None
     """
     Дата поста-репоста, UTC ISO-8601
     """
-    views: Annotated[int | None, Field(title='Views')] = None
+    views: Annotated[int | None, Field(title="Views")] = None
     """
     Просмотры поста-репоста
     """
-    source: Annotated[str | None, Field(title='Source')] = None
+    source: Annotated[str | None, Field(title="Source")] = None
     """
     Источник: «telegram» или «max»
     """
-    original_channel_id: Annotated[int | None, Field(title='Original Channel Id')] = (
-        None
-    )
+    original_channel_id: Annotated[int | None, Field(title="Original Channel Id")] = None
     """
     ID исходного канала (откуда переслали)
     """
-    original_message_id: Annotated[int | None, Field(title='Original Message Id')] = (
-        None
-    )
+    original_message_id: Annotated[int | None, Field(title="Original Message Id")] = None
     """
     ID исходного сообщения
     """
-    original_post_id: Annotated[str | None, Field(title='Original Post Id')] = None
+    original_post_id: Annotated[str | None, Field(title="Original Post Id")] = None
     """
     Идентификатор исходного поста «<channel_id>_<message_id>»
     """
-    original_source: Annotated[str | None, Field(title='Original Source')] = None
+    original_source: Annotated[str | None, Field(title="Original Source")] = None
     """
     Платформа исходного канала: «telegram» или «max»
     """
@@ -651,52 +629,52 @@ class ForwardList(TrustatModel):
     Страница репостов из канала.
     """
 
-    channel_id: Annotated[int | None, Field(title='Channel Id')] = None
+    channel_id: Annotated[int | None, Field(title="Channel Id")] = None
     """
     ID канала-источника
     """
-    source: Annotated[str | None, Field(title='Source')] = None
+    source: Annotated[str | None, Field(title="Source")] = None
     """
     Источник запрошенного канала: «telegram» или «max»
     """
-    total: Annotated[int | None, Field(title='Total')] = None
+    total: Annotated[int | None, Field(title="Total")] = None
     """
     Всего найдено репостов
     """
-    limit: Annotated[int | None, Field(title='Limit')] = None
+    limit: Annotated[int | None, Field(title="Limit")] = None
     """
     Размер страницы из запроса
     """
-    offset: Annotated[int | None, Field(title='Offset')] = None
+    offset: Annotated[int | None, Field(title="Offset")] = None
     """
     Смещение из запроса
     """
-    forwards: Annotated[list[Forward] | None, Field(title='Forwards')] = None
+    forwards: Annotated[list[Forward] | None, Field(title="Forwards")] = None
     """
     Посты, репостнувшие из этого канала
     """
 
 
 class HealthStatus(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = None
+    status: Annotated[str | None, Field(title="Status")] = None
     """
     Всегда «ok», если сервис жив
     """
 
 
 class LanguageDict(TrustatModel):
-    code: Annotated[str | None, Field(title='Code')] = None
+    code: Annotated[str | None, Field(title="Code")] = None
     """
     Код языка (ISO 639, напр. «ru»)
     """
-    channels_count: Annotated[int | None, Field(title='Channels Count')] = None
+    channels_count: Annotated[int | None, Field(title="Channels Count")] = None
     """
     Сколько каналов на этом языке
     """
 
 
 class LanguagesDict(TrustatModel):
-    languages: Annotated[list[LanguageDict] | None, Field(title='Languages')] = None
+    languages: Annotated[list[LanguageDict] | None, Field(title="Languages")] = None
     """
     Справочник языков
     """
@@ -707,31 +685,31 @@ class LookupResult(TrustatModel):
     Канонический результат резолва идентификатора.
     """
 
-    type: Annotated[str | None, Field(title='Type')] = None
+    type: Annotated[str | None, Field(title="Type")] = None
     """
     «channel» или «post»
     """
-    source: Annotated[str | None, Field(title='Source')] = None
+    source: Annotated[str | None, Field(title="Source")] = None
     """
     Платформа: «telegram» или «max»
     """
-    channel_id: Annotated[int | None, Field(title='Channel Id')] = None
+    channel_id: Annotated[int | None, Field(title="Channel Id")] = None
     """
     Внутренний ID канала
     """
-    peer_type: Annotated[str | None, Field(title='Peer Type')] = None
+    peer_type: Annotated[str | None, Field(title="Peer Type")] = None
     """
     Тип: «channel» (канал) или «chat» (чат/группа)
     """
-    username: Annotated[str | None, Field(title='Username')] = None
+    username: Annotated[str | None, Field(title="Username")] = None
     """
     Юзернейм, если есть
     """
-    message_id: Annotated[int | None, Field(title='Message Id')] = None
+    message_id: Annotated[int | None, Field(title="Message Id")] = None
     """
     ID сообщения (только для type=post)
     """
-    canonical_link: Annotated[str | None, Field(title='Canonical Link')] = None
+    canonical_link: Annotated[str | None, Field(title="Canonical Link")] = None
     """
     Канонический публичный линк канала
     """
@@ -742,27 +720,27 @@ class Mention(TrustatModel):
     Упоминание канала другим каналом.
     """
 
-    src_channel_id: Annotated[int | None, Field(title='Src Channel Id')] = None
+    src_channel_id: Annotated[int | None, Field(title="Src Channel Id")] = None
     """
     ID канала-источника упоминания
     """
-    src_message_id: Annotated[int | None, Field(title='Src Message Id')] = None
+    src_message_id: Annotated[int | None, Field(title="Src Message Id")] = None
     """
     ID сообщения-источника
     """
-    src_post_id: Annotated[str | None, Field(title='Src Post Id')] = None
+    src_post_id: Annotated[str | None, Field(title="Src Post Id")] = None
     """
     Идентификатор поста-источника «<channel_id>_<message_id>»
     """
-    src_source: Annotated[str | None, Field(title='Src Source')] = None
+    src_source: Annotated[str | None, Field(title="Src Source")] = None
     """
     Платформа упоминающего поста: «telegram» или «max»
     """
-    type: Annotated[str | None, Field(title='Type')] = None
+    type: Annotated[str | None, Field(title="Type")] = None
     """
     Тип упоминания (напр. «link»)
     """
-    post_date: Annotated[str | None, Field(title='Post Date')] = None
+    post_date: Annotated[str | None, Field(title="Post Date")] = None
     """
     Дата упоминания, UTC ISO-8601
     """
@@ -773,23 +751,23 @@ class MentionList(TrustatModel):
     Страница упоминаний канала.
     """
 
-    channel_id: Annotated[int | None, Field(title='Channel Id')] = None
+    channel_id: Annotated[int | None, Field(title="Channel Id")] = None
     """
     ID канала, упоминания которого запрошены
     """
-    source: Annotated[str | None, Field(title='Source')] = None
+    source: Annotated[str | None, Field(title="Source")] = None
     """
     Источник запрошенного канала: «telegram» или «max»
     """
-    limit: Annotated[int | None, Field(title='Limit')] = None
+    limit: Annotated[int | None, Field(title="Limit")] = None
     """
     Размер страницы из запроса
     """
-    offset: Annotated[int | None, Field(title='Offset')] = None
+    offset: Annotated[int | None, Field(title="Offset")] = None
     """
     Смещение из запроса
     """
-    mentions: Annotated[list[Mention] | None, Field(title='Mentions')] = None
+    mentions: Annotated[list[Mention] | None, Field(title="Mentions")] = None
     """
     Упоминания (свежие сверху)
     """
@@ -800,63 +778,63 @@ class Post(TrustatModel):
     Актуальное состояние публикации.
     """
 
-    channel_id: Annotated[int | None, Field(title='Channel Id')] = None
+    channel_id: Annotated[int | None, Field(title="Channel Id")] = None
     """
     ID канала
     """
-    message_id: Annotated[int | None, Field(title='Message Id')] = None
+    message_id: Annotated[int | None, Field(title="Message Id")] = None
     """
     ID сообщения
     """
-    post_id: Annotated[str | None, Field(title='Post Id')] = None
+    post_id: Annotated[str | None, Field(title="Post Id")] = None
     """
     Идентификатор поста в формате «<channel_id>_<message_id>»
     """
-    source: Annotated[str | None, Field(title='Source')] = None
+    source: Annotated[str | None, Field(title="Source")] = None
     """
     Источник: «telegram» или «max»
     """
-    date: Annotated[str | None, Field(title='Date')] = None
+    date: Annotated[str | None, Field(title="Date")] = None
     """
     Дата публикации, UTC ISO-8601
     """
-    edit_date: Annotated[str | None, Field(title='Edit Date')] = None
+    edit_date: Annotated[str | None, Field(title="Edit Date")] = None
     """
     Дата последнего редактирования (UTC ISO-8601); null, если не редактировался
     """
-    text: Annotated[str | None, Field(title='Text')] = None
+    text: Annotated[str | None, Field(title="Text")] = None
     """
     Текущий текст поста
     """
-    views: Annotated[int | None, Field(title='Views')] = None
+    views: Annotated[int | None, Field(title="Views")] = None
     """
     Просмотры
     """
-    forwards: Annotated[int | None, Field(title='Forwards')] = None
+    forwards: Annotated[int | None, Field(title="Forwards")] = None
     """
     Репосты
     """
-    replies: Annotated[int | None, Field(title='Replies')] = None
+    replies: Annotated[int | None, Field(title="Replies")] = None
     """
     Комментарии
     """
-    reactions_count: Annotated[int | None, Field(title='Reactions Count')] = None
+    reactions_count: Annotated[int | None, Field(title="Reactions Count")] = None
     """
     Суммарное число реакций
     """
-    is_deleted: Annotated[bool | None, Field(title='Is Deleted')] = None
+    is_deleted: Annotated[bool | None, Field(title="Is Deleted")] = None
     """
     Пост удалён
     """
-    link: Annotated[str | None, Field(title='Link')] = None
+    link: Annotated[str | None, Field(title="Link")] = None
     """
     Ссылка на пост (t.me/…)
     """
-    forwarded_from: Annotated[Any, Field(title='Forwarded From')] = None
+    forwarded_from: Annotated[Any, Field(title="Forwarded From")] = None
     """
     Источник пересылки, если это репост
     """
-    media: Annotated[Any, Field(title='Media')] = None
+    media: Annotated[Any, Field(title="Media")] = None
     """
     Медиа-вложение, если есть
     """
@@ -867,35 +845,35 @@ class PostStat(TrustatModel):
     Статистика вовлечённости публикации: просмотры, репосты, комментарии, реакции.
     """
 
-    post_id: Annotated[str | None, Field(title='Post Id')] = None
+    post_id: Annotated[str | None, Field(title="Post Id")] = None
     """
     Идентификатор поста «<channel_id>_<message_id>»
     """
-    channel_id: Annotated[int | None, Field(title='Channel Id')] = None
+    channel_id: Annotated[int | None, Field(title="Channel Id")] = None
     """
     ID канала
     """
-    message_id: Annotated[int | None, Field(title='Message Id')] = None
+    message_id: Annotated[int | None, Field(title="Message Id")] = None
     """
     ID сообщения
     """
-    source: Annotated[str | None, Field(title='Source')] = None
+    source: Annotated[str | None, Field(title="Source")] = None
     """
     Источник: «telegram» или «max»
     """
-    views: Annotated[int | None, Field(title='Views')] = None
+    views: Annotated[int | None, Field(title="Views")] = None
     """
     Наиболее точное доступное число просмотров публикации
     """
-    forwards: Annotated[int | None, Field(title='Forwards')] = None
+    forwards: Annotated[int | None, Field(title="Forwards")] = None
     """
     Репосты
     """
-    replies: Annotated[int | None, Field(title='Replies')] = None
+    replies: Annotated[int | None, Field(title="Replies")] = None
     """
     Комментарии
     """
-    reactions_count: Annotated[int | None, Field(title='Reactions Count')] = None
+    reactions_count: Annotated[int | None, Field(title="Reactions Count")] = None
     """
     Суммарное число реакций
     """
@@ -906,31 +884,31 @@ class PostSummary(TrustatModel):
     Краткая карточка публикации в результатах поиска.
     """
 
-    channel_id: Annotated[int | None, Field(title='Channel Id')] = None
+    channel_id: Annotated[int | None, Field(title="Channel Id")] = None
     """
     ID канала
     """
-    message_id: Annotated[int | None, Field(title='Message Id')] = None
+    message_id: Annotated[int | None, Field(title="Message Id")] = None
     """
     ID сообщения
     """
-    post_id: Annotated[str | None, Field(title='Post Id')] = None
+    post_id: Annotated[str | None, Field(title="Post Id")] = None
     """
     Идентификатор поста «<channel_id>_<message_id>»
     """
-    date: Annotated[str | None, Field(title='Date')] = None
+    date: Annotated[str | None, Field(title="Date")] = None
     """
     Дата публикации, UTC ISO-8601
     """
-    views: Annotated[int | None, Field(title='Views')] = None
+    views: Annotated[int | None, Field(title="Views")] = None
     """
     Просмотры
     """
-    text: Annotated[str | None, Field(title='Text')] = None
+    text: Annotated[str | None, Field(title="Text")] = None
     """
     Текст поста
     """
-    source: Annotated[str | None, Field(title='Source')] = None
+    source: Annotated[str | None, Field(title="Source")] = None
     """
     Источник: «telegram» или «max»
     """
@@ -941,70 +919,70 @@ class PostVersion(TrustatModel):
     Одна сохранённая версия публикации из истории правок.
     """
 
-    channel_id: Annotated[int | None, Field(title='Channel Id')] = None
+    channel_id: Annotated[int | None, Field(title="Channel Id")] = None
     """
     ID канала
     """
-    message_id: Annotated[int | None, Field(title='Message Id')] = None
+    message_id: Annotated[int | None, Field(title="Message Id")] = None
     """
     ID сообщения
     """
-    source: Annotated[str | None, Field(title='Source')] = None
+    source: Annotated[str | None, Field(title="Source")] = None
     """
     Источник: «telegram» или «max»
     """
-    version_date: Annotated[str | None, Field(title='Version Date')] = None
+    version_date: Annotated[str | None, Field(title="Version Date")] = None
     """
     Когда эта версия была зафиксирована, UTC ISO-8601
     """
-    post_date: Annotated[str | None, Field(title='Post Date')] = None
+    post_date: Annotated[str | None, Field(title="Post Date")] = None
     """
     Дата исходной публикации поста, UTC ISO-8601
     """
-    text: Annotated[str | None, Field(title='Text')] = None
+    text: Annotated[str | None, Field(title="Text")] = None
     """
     Текст поста в этой версии
     """
-    views: Annotated[int | None, Field(title='Views')] = None
+    views: Annotated[int | None, Field(title="Views")] = None
     """
     Просмотры на момент фиксации версии
     """
-    forwards: Annotated[int | None, Field(title='Forwards')] = None
+    forwards: Annotated[int | None, Field(title="Forwards")] = None
     """
     Репосты на момент фиксации версии
     """
-    replies: Annotated[int | None, Field(title='Replies')] = None
+    replies: Annotated[int | None, Field(title="Replies")] = None
     """
     Комментарии на момент фиксации версии
     """
-    reactions_count: Annotated[int | None, Field(title='Reactions Count')] = None
+    reactions_count: Annotated[int | None, Field(title="Reactions Count")] = None
     """
     Суммарное число реакций на момент фиксации
     """
-    is_deleted: Annotated[bool | None, Field(title='Is Deleted')] = None
+    is_deleted: Annotated[bool | None, Field(title="Is Deleted")] = None
     """
     Был ли пост удалён в этой версии
     """
-    link: Annotated[str | None, Field(title='Link')] = None
+    link: Annotated[str | None, Field(title="Link")] = None
     """
     Ссылка на пост (t.me/…)
     """
-    forwarded_from: Annotated[Any, Field(title='Forwarded From')] = None
+    forwarded_from: Annotated[Any, Field(title="Forwarded From")] = None
     """
     Источник пересылки, если это репост
     """
-    media: Annotated[Any, Field(title='Media')] = None
+    media: Annotated[Any, Field(title="Media")] = None
     """
     Медиа-вложение, если есть
     """
 
 
 class SubscribersPoint(TrustatModel):
-    date: Annotated[str | None, Field(title='Date')] = None
+    date: Annotated[str | None, Field(title="Date")] = None
     """
     Дата, YYYY-MM-DD
     """
-    participants: Annotated[int | None, Field(title='Participants')] = None
+    participants: Annotated[int | None, Field(title="Participants")] = None
     """
     Число подписчиков на эту дату
     """
@@ -1015,34 +993,34 @@ class SubscribersSeries(TrustatModel):
     Динамика подписчиков по дням/неделям/месяцам.
     """
 
-    channel_id: Annotated[int | None, Field(title='Channel Id')] = None
+    channel_id: Annotated[int | None, Field(title="Channel Id")] = None
     """
     ID канала
     """
-    source: Annotated[str | None, Field(title='Source')] = None
+    source: Annotated[str | None, Field(title="Source")] = None
     """
     Источник: «telegram» или «max»
     """
-    group: Annotated[str | None, Field(title='Group')] = 'day'
+    group: Annotated[str | None, Field(title="Group")] = "day"
     """
     Группировка: «day», «week» или «month»
     """
-    days: Annotated[int | None, Field(title='Days')] = None
+    days: Annotated[int | None, Field(title="Days")] = None
     """
     Глубина периода в днях (если не задан диапазон from/to_date)
     """
-    points: Annotated[list[SubscribersPoint] | None, Field(title='Points')] = None
+    points: Annotated[list[SubscribersPoint] | None, Field(title="Points")] = None
     """
     Точки временного ряда (по возрастанию даты)
     """
 
 
 class TimelinePoint(TrustatModel):
-    date: Annotated[str | None, Field(title='Date')] = None
+    date: Annotated[str | None, Field(title="Date")] = None
     """
     Дата периода, YYYY-MM-DD
     """
-    count: Annotated[int | None, Field(title='Count')] = None
+    count: Annotated[int | None, Field(title="Count")] = None
     """
     Сколько объявлений в этом периоде
     """
@@ -1053,59 +1031,57 @@ class UsageInfo(TrustatModel):
     Текущее потребление квоты по ключу.
     """
 
-    plan: Annotated[str | None, Field(title='Plan')] = None
+    plan: Annotated[str | None, Field(title="Plan")] = None
     """
     Тариф ключа (напр. «free», «pro»)
     """
-    period: Annotated[str | None, Field(title='Period')] = None
+    period: Annotated[str | None, Field(title="Period")] = None
     """
     Расчётный период, YYYY-MM
     """
-    spent_requests: Annotated[str | None, Field(title='Spent Requests')] = None
+    spent_requests: Annotated[str | None, Field(title="Spent Requests")] = None
     """
     Потрачено запросов за период в виде «использовано/лимит»
     """
-    spent_unique_channels: Annotated[
-        str | None, Field(title='Spent Unique Channels')
-    ] = None
+    spent_unique_channels: Annotated[str | None, Field(title="Spent Unique Channels")] = None
     """
     Уникальных каналов за период в виде «использовано/лимит»
     """
-    spent_listing: Annotated[str | None, Field(title='Spent Listing')] = None
+    spent_listing: Annotated[str | None, Field(title="Spent Listing")] = None
     """
     Результатов листинга (каталог/поиск) за период «использовано/лимит»
     """
-    rps: Annotated[int | None, Field(title='Rps')] = None
+    rps: Annotated[int | None, Field(title="Rps")] = None
     """
     Лимит запросов в секунду (rate limit)
     """
-    scopes: Annotated[list[str] | None, Field(title='Scopes')] = None
+    scopes: Annotated[list[str] | None, Field(title="Scopes")] = None
     """
     Разрешённые этому ключу разделы (scopes)
     """
 
 
 class ValidationError(TrustatModel):
-    loc: Annotated[list[str | int] | None, Field(title='Location')] = None
-    msg: Annotated[str | None, Field(title='Message')] = None
-    type: Annotated[str | None, Field(title='Error Type')] = None
-    input: Annotated[Any | None, Field(title='Input')] = None
-    ctx: Annotated[dict[str, Any] | None, Field(title='Context')] = None
+    loc: Annotated[list[str | int] | None, Field(title="Location")] = None
+    msg: Annotated[str | None, Field(title="Message")] = None
+    type: Annotated[str | None, Field(title="Error Type")] = None
+    input: Annotated[Any | None, Field(title="Input")] = None
+    ctx: Annotated[dict[str, Any] | None, Field(title="Context")] = None
 
 
 class VersionInfo(TrustatModel):
-    version: Annotated[str | None, Field(title='Version')] = None
+    version: Annotated[str | None, Field(title="Version")] = None
     """
     Версия сервиса
     """
 
 
 class ViewsPoint(TrustatModel):
-    date: Annotated[str | None, Field(title='Date')] = None
+    date: Annotated[str | None, Field(title="Date")] = None
     """
     Дата, YYYY-MM-DD
     """
-    value: Annotated[int | None, Field(title='Value')] = None
+    value: Annotated[int | None, Field(title="Value")] = None
     """
     Значение метрики на эту дату
     """
@@ -1116,27 +1092,27 @@ class ViewsSeries(TrustatModel):
     Динамика средних просмотров/охвата по дням.
     """
 
-    channel_id: Annotated[int | None, Field(title='Channel Id')] = None
+    channel_id: Annotated[int | None, Field(title="Channel Id")] = None
     """
     ID канала
     """
-    source: Annotated[str | None, Field(title='Source')] = None
+    source: Annotated[str | None, Field(title="Source")] = None
     """
     Источник: «telegram» или «max»
     """
-    metric: Annotated[str | None, Field(title='Metric')] = None
+    metric: Annotated[str | None, Field(title="Metric")] = None
     """
     Метрика: «views24» (просмотры за 24ч) или «views48» (охват за 48ч)
     """
-    group: Annotated[str | None, Field(title='Group')] = 'day'
+    group: Annotated[str | None, Field(title="Group")] = "day"
     """
     Группировка: «day», «week» или «month»
     """
-    days: Annotated[int | None, Field(title='Days')] = None
+    days: Annotated[int | None, Field(title="Days")] = None
     """
     Глубина периода в днях (если не задан диапазон from/to_date)
     """
-    points: Annotated[list[ViewsPoint] | None, Field(title='Points')] = None
+    points: Annotated[list[ViewsPoint] | None, Field(title="Points")] = None
     """
     Точки временного ряда (по возрастанию даты)
     """
@@ -1147,45 +1123,35 @@ class AdFacets(TrustatModel):
     Counts по каждому фасету для построения фильтров.
     """
 
-    ad_format: Annotated[list[FacetBucket] | None, Field(title='Ad Format')] = None
+    ad_format: Annotated[list[FacetBucket] | None, Field(title="Ad Format")] = None
     """
     По формату объявления
     """
-    advertiser_type: Annotated[
-        list[FacetBucket] | None, Field(title='Advertiser Type')
-    ] = None
+    advertiser_type: Annotated[list[FacetBucket] | None, Field(title="Advertiser Type")] = None
     """
     По типу рекламодателя
     """
-    creative_lang: Annotated[list[FacetBucket] | None, Field(title='Creative Lang')] = (
-        None
-    )
+    creative_lang: Annotated[list[FacetBucket] | None, Field(title="Creative Lang")] = None
     """
     По языку объявления
     """
-    channel_country: Annotated[
-        list[FacetBucket] | None, Field(title='Channel Country')
-    ] = None
+    channel_country: Annotated[list[FacetBucket] | None, Field(title="Channel Country")] = None
     """
     По стране канала показа (нормализовано)
     """
-    channel_lang: Annotated[list[FacetBucket] | None, Field(title='Channel Lang')] = (
-        None
-    )
+    channel_lang: Annotated[list[FacetBucket] | None, Field(title="Channel Lang")] = None
     """
     По языку канала показа
     """
-    channel_category_id: Annotated[
-        list[FacetBucket] | None, Field(title='Channel Category Id')
-    ] = None
+    channel_category_id: Annotated[list[FacetBucket] | None, Field(title="Channel Category Id")] = None
     """
     По категории канала показа
     """
-    button_text: Annotated[list[FacetBucket] | None, Field(title='Button Text')] = None
+    button_text: Annotated[list[FacetBucket] | None, Field(title="Button Text")] = None
     """
     По тексту кнопки (CTA)
     """
-    color_id: Annotated[list[FacetBucket] | None, Field(title='Color Id')] = None
+    color_id: Annotated[list[FacetBucket] | None, Field(title="Color Id")] = None
     """
     По акцентному цвету
     """
@@ -1196,19 +1162,19 @@ class AdSearchList(TrustatModel):
     Страница результатов поиска по рекламе.
     """
 
-    total: Annotated[int | None, Field(title='Total')] = None
+    total: Annotated[int | None, Field(title="Total")] = None
     """
     Примерное число подходящих объявлений (точно до порога; дальше — нижняя оценка)
     """
-    limit: Annotated[int | None, Field(title='Limit')] = None
+    limit: Annotated[int | None, Field(title="Limit")] = None
     """
     Размер страницы из запроса
     """
-    next_cursor: Annotated[str | None, Field(title='Next Cursor')] = None
+    next_cursor: Annotated[str | None, Field(title="Next Cursor")] = None
     """
     Курсор следующей страницы; null, если объявлений больше нет
     """
-    ads: Annotated[list[AdSummary] | None, Field(title='Ads')] = None
+    ads: Annotated[list[AdSummary] | None, Field(title="Ads")] = None
     """
     Объявления на этой странице
     """
@@ -1219,22 +1185,22 @@ class AdsTimeline(TrustatModel):
     Динамика объёма рекламы по времени.
     """
 
-    group: Annotated[str | None, Field(title='Group')] = None
+    group: Annotated[str | None, Field(title="Group")] = None
     """
     Группировка: «day», «week» или «month»
     """
-    date_field: Annotated[str | None, Field(title='Date Field')] = None
+    date_field: Annotated[str | None, Field(title="Date Field")] = None
     """
     По какому полю даты построен ряд: «first_seen» или «last_seen»
     """
-    points: Annotated[list[TimelinePoint] | None, Field(title='Points')] = None
+    points: Annotated[list[TimelinePoint] | None, Field(title="Points")] = None
     """
     Точки ряда (по возрастанию даты)
     """
 
 
 class CategoriesDict(TrustatModel):
-    categories: Annotated[list[CategoryDict] | None, Field(title='Categories')] = None
+    categories: Annotated[list[CategoryDict] | None, Field(title="Categories")] = None
     """
     Справочник категорий
     """
@@ -1245,15 +1211,15 @@ class ChannelBatch(TrustatModel):
     Ответ батч-запроса по списку ID.
     """
 
-    requested: Annotated[int | None, Field(title='Requested')] = None
+    requested: Annotated[int | None, Field(title="Requested")] = None
     """
     Сколько ID запрошено (после дедупликации)
     """
-    found: Annotated[int | None, Field(title='Found')] = None
+    found: Annotated[int | None, Field(title="Found")] = None
     """
     Сколько каналов найдено
     """
-    channels: Annotated[list[ChannelInfo] | None, Field(title='Channels')] = None
+    channels: Annotated[list[ChannelInfo] | None, Field(title="Channels")] = None
     """
     Найденные каналы (порядок соответствует запросу)
     """
@@ -1264,33 +1230,33 @@ class ChannelPostsFeed(TrustatModel):
     Хронологическая лента постов канала (свежие сверху) с курсорной пагинацией.
     """
 
-    channel_id: Annotated[int | None, Field(title='Channel Id')] = None
+    channel_id: Annotated[int | None, Field(title="Channel Id")] = None
     """
     ID канала
     """
-    source: Annotated[str | None, Field(title='Source')] = None
+    source: Annotated[str | None, Field(title="Source")] = None
     """
     Источник: «telegram» или «max»
     """
-    posts: Annotated[list[PostSummary] | None, Field(title='Posts')] = None
+    posts: Annotated[list[PostSummary] | None, Field(title="Posts")] = None
     """
     Посты на этой странице
     """
-    next_cursor: Annotated[str | None, Field(title='Next Cursor')] = None
+    next_cursor: Annotated[str | None, Field(title="Next Cursor")] = None
     """
     Курсор для следующей страницы; null, если постов больше нет
     """
 
 
 class CountriesDict(TrustatModel):
-    countries: Annotated[list[CountryDict] | None, Field(title='Countries')] = None
+    countries: Annotated[list[CountryDict] | None, Field(title="Countries")] = None
     """
     Справочник стран
     """
 
 
 class EnvelopeAdFacets(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1301,7 +1267,7 @@ class EnvelopeAdFacets(TrustatModel):
 
 
 class EnvelopeAdSearchList(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1312,7 +1278,7 @@ class EnvelopeAdSearchList(TrustatModel):
 
 
 class EnvelopeAdsTimeline(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1323,7 +1289,7 @@ class EnvelopeAdsTimeline(TrustatModel):
 
 
 class EnvelopeCategoriesDict(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1334,7 +1300,7 @@ class EnvelopeCategoriesDict(TrustatModel):
 
 
 class EnvelopeChannelBatch(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1345,7 +1311,7 @@ class EnvelopeChannelBatch(TrustatModel):
 
 
 class EnvelopeChannelPostsFeed(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1356,7 +1322,7 @@ class EnvelopeChannelPostsFeed(TrustatModel):
 
 
 class EnvelopeCountriesDict(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1367,7 +1333,7 @@ class EnvelopeCountriesDict(TrustatModel):
 
 
 class EnvelopeForwardList(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1378,7 +1344,7 @@ class EnvelopeForwardList(TrustatModel):
 
 
 class EnvelopeHealthStatus(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1389,7 +1355,7 @@ class EnvelopeHealthStatus(TrustatModel):
 
 
 class EnvelopeLanguagesDict(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1400,7 +1366,7 @@ class EnvelopeLanguagesDict(TrustatModel):
 
 
 class EnvelopeMentionList(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1411,7 +1377,7 @@ class EnvelopeMentionList(TrustatModel):
 
 
 class EnvelopePostStat(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1422,7 +1388,7 @@ class EnvelopePostStat(TrustatModel):
 
 
 class EnvelopePost(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1433,7 +1399,7 @@ class EnvelopePost(TrustatModel):
 
 
 class EnvelopeSubscribersSeries(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1444,7 +1410,7 @@ class EnvelopeSubscribersSeries(TrustatModel):
 
 
 class EnvelopeUsageInfo(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1455,7 +1421,7 @@ class EnvelopeUsageInfo(TrustatModel):
 
 
 class EnvelopeVersionInfo(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1466,7 +1432,7 @@ class EnvelopeVersionInfo(TrustatModel):
 
 
 class EnvelopeViewsSeries(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1477,7 +1443,7 @@ class EnvelopeViewsSeries(TrustatModel):
 
 
 class HTTPValidationError(TrustatModel):
-    detail: Annotated[list[ValidationError] | None, Field(title='Detail')] = None
+    detail: Annotated[list[ValidationError] | None, Field(title="Detail")] = None
 
 
 class LookupResponse(TrustatModel):
@@ -1485,7 +1451,7 @@ class LookupResponse(TrustatModel):
     Результаты резолвера. Обычно один; при source=all и коллизии — несколько кандидатов.
     """
 
-    results: Annotated[list[LookupResult] | None, Field(title='Results')] = None
+    results: Annotated[list[LookupResult] | None, Field(title="Results")] = None
     """
     Канонические кандидаты (≥1)
     """
@@ -1496,27 +1462,27 @@ class PostHistory(TrustatModel):
     История правок поста.
     """
 
-    post_id: Annotated[str | None, Field(title='Post Id')] = None
+    post_id: Annotated[str | None, Field(title="Post Id")] = None
     """
     Идентификатор поста «<channel_id>_<message_id>»
     """
-    channel_id: Annotated[int | None, Field(title='Channel Id')] = None
+    channel_id: Annotated[int | None, Field(title="Channel Id")] = None
     """
     ID канала
     """
-    message_id: Annotated[int | None, Field(title='Message Id')] = None
+    message_id: Annotated[int | None, Field(title="Message Id")] = None
     """
     ID сообщения
     """
-    source: Annotated[str | None, Field(title='Source')] = None
+    source: Annotated[str | None, Field(title="Source")] = None
     """
     Источник: «telegram» или «max»
     """
-    versions_count: Annotated[int | None, Field(title='Versions Count')] = None
+    versions_count: Annotated[int | None, Field(title="Versions Count")] = None
     """
     Сколько версий сохранено
     """
-    versions: Annotated[list[PostVersion] | None, Field(title='Versions')] = None
+    versions: Annotated[list[PostVersion] | None, Field(title="Versions")] = None
     """
     Версии поста (свежие сверху)
     """
@@ -1527,26 +1493,26 @@ class PostSearchList(TrustatModel):
     Страница результатов поиска по постам.
     """
 
-    total: Annotated[int | None, Field(title='Total')] = None
+    total: Annotated[int | None, Field(title="Total")] = None
     """
     Примерное число подходящих постов (точно до порога; дальше — нижняя оценка)
     """
-    limit: Annotated[int | None, Field(title='Limit')] = None
+    limit: Annotated[int | None, Field(title="Limit")] = None
     """
     Размер страницы из запроса
     """
-    next_cursor: Annotated[str | None, Field(title='Next Cursor')] = None
+    next_cursor: Annotated[str | None, Field(title="Next Cursor")] = None
     """
     Курсор следующей страницы; null, если постов больше нет (или достигнут потолок глубины — сузьте фильтр)
     """
-    posts: Annotated[list[PostSummary] | None, Field(title='Posts')] = None
+    posts: Annotated[list[PostSummary] | None, Field(title="Posts")] = None
     """
     Найденные посты
     """
 
 
 class EnvelopeLookupResponse(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1557,7 +1523,7 @@ class EnvelopeLookupResponse(TrustatModel):
 
 
 class EnvelopePostHistory(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """
@@ -1568,7 +1534,7 @@ class EnvelopePostHistory(TrustatModel):
 
 
 class EnvelopePostSearchList(TrustatModel):
-    status: Annotated[str | None, Field(title='Status')] = 'ok'
+    status: Annotated[str | None, Field(title="Status")] = "ok"
     """
     Всегда «ok» для успешного ответа
     """

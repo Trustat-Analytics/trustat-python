@@ -10,8 +10,8 @@ from __future__ import annotations
 
 import email.utils
 import random
+from collections.abc import Mapping
 from datetime import datetime, timezone
-from typing import Mapping
 
 from ._constants import INITIAL_RETRY_DELAY, MAX_RETRY_AFTER, MAX_RETRY_DELAY, RETRY_STATUS_CODES
 

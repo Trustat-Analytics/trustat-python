@@ -3,9 +3,9 @@ from __future__ import annotations
 import httpx
 import pytest
 import respx
-from conftest import BASE, err, ok, resp
 
-from trustat import RateLimitError, Trustat
+from conftest import BASE, err, ok, resp
+from trustat import NotFoundError, RateLimitError, Trustat
 
 
 @respx.mock
@@ -33,7 +33,9 @@ def test_retries_500_then_succeeds(client):
 @respx.mock
 def test_gives_up_after_max_retries():
     c = Trustat(api_key="tk_test", base_url=BASE, max_retries=1)
-    route = respx.get(f"{BASE}/public/v1/channels/x").mock(return_value=resp(429, err("rate_limited"), **{"retry-after": "0"}))
+    route = respx.get(f"{BASE}/public/v1/channels/x").mock(
+        return_value=resp(429, err("rate_limited"), **{"retry-after": "0"})
+    )
     with pytest.raises(RateLimitError):
         c.channels.get("x")
     assert route.call_count == 2  # initial + 1 retry
@@ -52,6 +54,6 @@ def test_retries_connection_error(client):
 @respx.mock
 def test_does_not_retry_404(client):
     route = respx.get(f"{BASE}/public/v1/channels/x").mock(return_value=resp(404, err("not_found")))
-    with pytest.raises(Exception):
+    with pytest.raises(NotFoundError):
         client.channels.get("x")
     assert route.call_count == 1  # 404 is terminal

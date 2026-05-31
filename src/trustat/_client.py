@@ -9,7 +9,8 @@ from __future__ import annotations
 
 import asyncio
 import time
-from typing import Any, Mapping
+from collections.abc import Mapping
+from typing import Any
 
 import httpx
 
@@ -59,8 +60,13 @@ class Trustat(BaseClient):
         send_telemetry: bool = True,
     ) -> None:
         super().__init__(
-            api_key=api_key, base_url=base_url, auth_header=auth_header, timeout=timeout,
-            max_retries=max_retries, default_headers=default_headers, default_query=default_query,
+            api_key=api_key,
+            base_url=base_url,
+            auth_header=auth_header,
+            timeout=timeout,
+            max_retries=max_retries,
+            default_headers=default_headers,
+            default_query=default_query,
             send_telemetry=send_telemetry,
         )
         self._owns_http = http_client is None
@@ -99,7 +105,7 @@ class Trustat(BaseClient):
         if self._owns_http:
             self._http.close()
 
-    def __enter__(self) -> "Trustat":
+    def __enter__(self) -> Trustat:
         return self
 
     def __exit__(self, *exc: object) -> None:
@@ -130,8 +136,13 @@ class AsyncTrustat(BaseClient):
         send_telemetry: bool = True,
     ) -> None:
         super().__init__(
-            api_key=api_key, base_url=base_url, auth_header=auth_header, timeout=timeout,
-            max_retries=max_retries, default_headers=default_headers, default_query=default_query,
+            api_key=api_key,
+            base_url=base_url,
+            auth_header=auth_header,
+            timeout=timeout,
+            max_retries=max_retries,
+            default_headers=default_headers,
+            default_query=default_query,
             send_telemetry=send_telemetry,
         )
         self._owns_http = http_client is None
@@ -145,7 +156,9 @@ class AsyncTrustat(BaseClient):
         self.usage = AsyncUsageResource(self)
         self.system = AsyncSystemResource(self)
 
-    async def _request(self, method: str, path: str, params: Mapping[str, Any] | None = None) -> tuple[Any, httpx.Response]:
+    async def _request(
+        self, method: str, path: str, params: Mapping[str, Any] | None = None
+    ) -> tuple[Any, httpx.Response]:
         url, query = self._prepare(path, params)
         for attempt in range(self.max_retries + 1):
             try:
@@ -170,7 +183,7 @@ class AsyncTrustat(BaseClient):
         if self._owns_http:
             await self._http.aclose()
 
-    async def __aenter__(self) -> "AsyncTrustat":
+    async def __aenter__(self) -> AsyncTrustat:
         return self
 
     async def __aexit__(self, *exc: object) -> None:

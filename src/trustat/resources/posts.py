@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Any, Iterable
+from collections.abc import Iterable
+from typing import Any
 
 from .._models.models import Post, PostHistory, PostStat, PostSummary
 from .._utils import quote_path
@@ -29,10 +30,20 @@ def _search_params(
     cursor: str | None,
 ) -> dict[str, Any]:
     return {
-        "q": q, "source": source, "channel_id": channel_id, "since_ts": since_ts,
-        "until_ts": until_ts, "views_min": views_min, "minus_words": minus_words,
-        "hide_forwards": hide_forwards, "hide_deleted": hide_deleted, "peer_type": peer_type,
-        "sort": sort, "order": order, "limit": limit, "cursor": cursor,
+        "q": q,
+        "source": source,
+        "channel_id": channel_id,
+        "since_ts": since_ts,
+        "until_ts": until_ts,
+        "views_min": views_min,
+        "minus_words": minus_words,
+        "hide_forwards": hide_forwards,
+        "hide_deleted": hide_deleted,
+        "peer_type": peer_type,
+        "sort": sort,
+        "order": order,
+        "limit": limit,
+        "cursor": cursor,
     }
 
 
@@ -57,11 +68,24 @@ class PostsResource(SyncResource):
     ) -> SyncCursorPage[PostSummary]:
         """Global post search (auto-paginating). Provide ``q`` and/or ``channel_id``."""
         params = _search_params(
-            q=q, source=source, channel_id=channel_id, since_ts=since_ts, until_ts=until_ts,
-            views_min=views_min, minus_words=minus_words, hide_forwards=hide_forwards,
-            hide_deleted=hide_deleted, peer_type=peer_type, sort=sort, order=order, limit=limit, cursor=cursor,
+            q=q,
+            source=source,
+            channel_id=channel_id,
+            since_ts=since_ts,
+            until_ts=until_ts,
+            views_min=views_min,
+            minus_words=minus_words,
+            hide_forwards=hide_forwards,
+            hide_deleted=hide_deleted,
+            peer_type=peer_type,
+            sort=sort,
+            order=order,
+            limit=limit,
+            cursor=cursor,
         )
-        return self._page("/public/v1/posts/search", params, item_key="posts", model=PostSummary, page_cls=SyncCursorPage)
+        return self._page(
+            "/public/v1/posts/search", params, item_key="posts", model=PostSummary, page_cls=SyncCursorPage
+        )
 
     def get(self, post_id: str, *, source: Source | None = None) -> Post:
         """A single post by ``<channel_id>_<message_id>`` or a t.me/max.ru post link."""
@@ -78,19 +102,43 @@ class PostsResource(SyncResource):
 
 class AsyncPostsResource(AsyncResource):
     def search(
-        self, q: str | None = None, *, source: Source = "telegram", channel_id: int | None = None,
-        since_ts: int | None = None, until_ts: int | None = None, views_min: int | None = None,
-        minus_words: Iterable[str] | str | None = None, hide_forwards: bool = False, hide_deleted: bool = True,
-        peer_type: PeerType = "channel", sort: PostSort = "date", order: Order = "desc",
-        limit: int = 20, cursor: str | None = None,
+        self,
+        q: str | None = None,
+        *,
+        source: Source = "telegram",
+        channel_id: int | None = None,
+        since_ts: int | None = None,
+        until_ts: int | None = None,
+        views_min: int | None = None,
+        minus_words: Iterable[str] | str | None = None,
+        hide_forwards: bool = False,
+        hide_deleted: bool = True,
+        peer_type: PeerType = "channel",
+        sort: PostSort = "date",
+        order: Order = "desc",
+        limit: int = 20,
+        cursor: str | None = None,
     ) -> AsyncPaginator[PostSummary]:
         """Global post search (auto-paginating). Provide ``q`` and/or ``channel_id``."""
         params = _search_params(
-            q=q, source=source, channel_id=channel_id, since_ts=since_ts, until_ts=until_ts,
-            views_min=views_min, minus_words=minus_words, hide_forwards=hide_forwards,
-            hide_deleted=hide_deleted, peer_type=peer_type, sort=sort, order=order, limit=limit, cursor=cursor,
+            q=q,
+            source=source,
+            channel_id=channel_id,
+            since_ts=since_ts,
+            until_ts=until_ts,
+            views_min=views_min,
+            minus_words=minus_words,
+            hide_forwards=hide_forwards,
+            hide_deleted=hide_deleted,
+            peer_type=peer_type,
+            sort=sort,
+            order=order,
+            limit=limit,
+            cursor=cursor,
         )
-        return self._page("/public/v1/posts/search", params, item_key="posts", model=PostSummary, page_cls=AsyncCursorPage)
+        return self._page(
+            "/public/v1/posts/search", params, item_key="posts", model=PostSummary, page_cls=AsyncCursorPage
+        )
 
     async def get(self, post_id: str, *, source: Source | None = None) -> Post:
         """A single post by ``<channel_id>_<message_id>`` or a t.me/max.ru post link."""

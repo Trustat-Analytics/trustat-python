@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-import httpx
 import pytest
 import respx
-from conftest import BASE, err, ok, resp
 
 import trustat
+from conftest import BASE, err, ok, resp
 from trustat import (
     AuthenticationError,
     NotFoundError,

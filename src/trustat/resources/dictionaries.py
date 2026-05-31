@@ -23,7 +23,9 @@ class DictionariesResource(SyncResource):
 class AsyncDictionariesResource(AsyncResource):
     async def categories(self) -> list[CategoryDict]:
         """All channel categories with channel counts."""
-        return await self._get_list("/public/v1/dictionaries/categories", None, item_key="categories", model=CategoryDict)
+        return await self._get_list(
+            "/public/v1/dictionaries/categories", None, item_key="categories", model=CategoryDict
+        )
 
     async def countries(self) -> list[CountryDict]:
         """All channel countries with channel counts."""

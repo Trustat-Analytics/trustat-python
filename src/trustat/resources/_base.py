@@ -6,7 +6,8 @@ typed models or pages. The sync/async split is just ``await``.
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Mapping, Type, TypeVar
+from collections.abc import Mapping
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from .._models._base import TrustatModel
 from ..pagination import AsyncPaginator, BasePage
@@ -19,10 +20,10 @@ P = TypeVar("P", bound=BasePage[Any])
 
 
 class SyncResource:
-    def __init__(self, client: "Trustat") -> None:
+    def __init__(self, client: Trustat) -> None:
         self._client = client
 
-    def _get(self, path: str, params: Mapping[str, Any] | None, *, model: Type[T]) -> T:
+    def _get(self, path: str, params: Mapping[str, Any] | None, *, model: type[T]) -> T:
         payload, _ = self._client._request("GET", path, params)
         return model.model_validate(payload)
 
@@ -30,7 +31,7 @@ class SyncResource:
         payload, _ = self._client._request("GET", path, params)
         return payload
 
-    def _get_list(self, path: str, params: Mapping[str, Any] | None, *, item_key: str, model: Type[T]) -> list[T]:
+    def _get_list(self, path: str, params: Mapping[str, Any] | None, *, item_key: str, model: type[T]) -> list[T]:
         payload, _ = self._client._request("GET", path, params)
         return [model.model_validate(r) for r in (payload.get(item_key) or [])]
 
@@ -40,8 +41,8 @@ class SyncResource:
         params: dict[str, Any],
         *,
         item_key: str,
-        model: Type[T],
-        page_cls: Type[P],
+        model: type[T],
+        page_cls: type[P],
     ) -> P:
         payload, response = self._client._request("GET", path, params)
         items = [model.model_validate(r) for r in (payload.get(item_key) or [])]
@@ -53,10 +54,10 @@ class SyncResource:
 
 
 class AsyncResource:
-    def __init__(self, client: "AsyncTrustat") -> None:
+    def __init__(self, client: AsyncTrustat) -> None:
         self._client = client
 
-    async def _get(self, path: str, params: Mapping[str, Any] | None, *, model: Type[T]) -> T:
+    async def _get(self, path: str, params: Mapping[str, Any] | None, *, model: type[T]) -> T:
         payload, _ = await self._client._request("GET", path, params)
         return model.model_validate(payload)
 
@@ -64,7 +65,7 @@ class AsyncResource:
         payload, _ = await self._client._request("GET", path, params)
         return payload
 
-    async def _get_list(self, path: str, params: Mapping[str, Any] | None, *, item_key: str, model: Type[T]) -> list[T]:
+    async def _get_list(self, path: str, params: Mapping[str, Any] | None, *, item_key: str, model: type[T]) -> list[T]:
         payload, _ = await self._client._request("GET", path, params)
         return [model.model_validate(r) for r in (payload.get(item_key) or [])]
 
@@ -74,8 +75,8 @@ class AsyncResource:
         params: dict[str, Any],
         *,
         item_key: str,
-        model: Type[T],
-        page_cls: Type[P],
+        model: type[T],
+        page_cls: type[P],
     ) -> AsyncPaginator[T]:
         """Return a lazy paginator (awaitable -> first page; async-iterable -> items)."""
 

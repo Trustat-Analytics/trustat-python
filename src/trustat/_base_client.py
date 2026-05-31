@@ -8,11 +8,12 @@ config resolution, auth, header, URL and query building is shared here.
 from __future__ import annotations
 
 import os
-from typing import Any, Mapping
+from collections.abc import Mapping
+from typing import Any
 
 import httpx
 
-from ._constants import DEFAULT_BASE_URL, DEFAULT_MAX_RETRIES, DEFAULT_TIMEOUT, ENV_API_KEY, ENV_BASE_URL
+from ._constants import DEFAULT_BASE_URL, DEFAULT_TIMEOUT, ENV_API_KEY, ENV_BASE_URL
 from ._utils import redact_key, serialize_query, user_agent
 from .errors import TrustatError
 
@@ -36,10 +37,7 @@ class BaseClient:
     ) -> None:
         key = api_key if api_key is not None else os.environ.get(ENV_API_KEY)
         if not key:
-            raise TrustatError(
-                "No API key provided. Pass api_key=... or set the "
-                f"{ENV_API_KEY} environment variable."
-            )
+            raise TrustatError(f"No API key provided. Pass api_key=... or set the {ENV_API_KEY} environment variable.")
         if auth_header not in ("authorization", "x-api-key"):
             raise TrustatError("auth_header must be 'authorization' or 'x-api-key'")
 

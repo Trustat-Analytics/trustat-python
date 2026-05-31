@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import pytest
 import respx
-from conftest import BASE, ok, page_body, resp
 
+from conftest import BASE, ok, page_body, resp
 from trustat import NotFoundError
 
 
@@ -17,7 +17,9 @@ async def test_async_get(aclient):
 @respx.mock
 async def test_async_awaited_page(aclient):
     respx.get(f"{BASE}/public/v1/channels/search").mock(
-        return_value=resp(200, {"status": "ok", "response": page_body("channels", [{"channel_id": 1}], next_cursor=None, total=1)})
+        return_value=resp(
+            200, {"status": "ok", "response": page_body("channels", [{"channel_id": 1}], next_cursor=None, total=1)}
+        )
     )
     page = await aclient.channels.search(q="x", limit=5)
     assert len(page) == 1 and page.total == 1
